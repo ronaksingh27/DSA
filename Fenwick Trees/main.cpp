@@ -61,7 +61,7 @@ struct FenWickTree
 
 // ( i & -i ) -> return the `rightmost 1-bit mask`
 
-//to get range_sum(l,r) , ans = sum(r_index) - sum(l_index)
+//to get range_sum(l,r) , ans = sum(r_index) - sum(l_index-1)
 
 int main()
 {
