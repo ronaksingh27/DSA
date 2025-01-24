@@ -16,7 +16,7 @@ class DSU{
     {
         if( x != par[x] )
         {
-            return par[x] = doFind(x);
+            return par[x] = doFind(par[x]);
         }
 
         return par[x];

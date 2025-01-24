@@ -7,6 +7,15 @@ void computeLPS(string& pattern,vector<int>& lps )
     int i = 1 , length = 0;
     lps[0] = 0;
 
+    /*
+        a b c d a b c e f g 
+        0 0 0 0 1 2 3 0 
+
+
+        a b c d a b c e a b c g h
+        0 0 0 0 1 2 3 0 1 2 3 
+    
+    */
     while( i < pattern.size() )
     {
         if( pattern[i] == pattern[length] )
