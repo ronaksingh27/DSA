@@ -12,8 +12,8 @@ void buildTree(int a[], int v, int tl, int tr) {
         t[v] = a[tl];
     } else {
         int tm = tl + (tr - tl) / 2;
-        buildTree(a, v * 2, tl, tm);
-        buildTree(a, v * 2 + 1, tm + 1, tr);
+        buildTree(a, v * 2, tl, tm);//left half
+        buildTree(a, v * 2 + 1, tm + 1, tr);//right half
         t[v] = t[v * 2] + t[v * 2 + 1]; // No need to cast since t[] is already long long
     }
 }

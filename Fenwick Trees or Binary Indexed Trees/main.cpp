@@ -1,9 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N = 10000;
+const int N = 1e5;
 int bit[N+1] = {0};
 
+/*
+
+i,j
+j = remove lat bit of 'i'
+i_th bit in bit[N+1] array stores nos(sum) from index `j + 1 -> i`
+j = i - (i & -i) // remove last set bit of i  
+
+*/
 //FENWICK TREES
 struct FenWickTree
 {
@@ -59,7 +67,8 @@ struct FenWickTree
 
 
 
-// ( i & -i ) -> return the `rightmost 1-bit mask`
+// ( i & -i ) -> return the `rightmost (set)1-bit mask`
+// X - (X & -X ) TO REMOVE RIGHTMOST SET BIT
 
 //to get range_sum(l,r) , ans = sum(r_index) - sum(l_index-1)
 
