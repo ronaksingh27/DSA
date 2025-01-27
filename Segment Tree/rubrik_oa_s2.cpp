@@ -6,7 +6,7 @@ const int MAXN = 1e5;
 int n;
 long long t[4 * MAXN]; // Change to long long to avoid overflow
 
-// Function to build the segment tree
+// Function to build the segment tree( already done on board ) yes man :)
 void buildTree(int a[], int v, int tl, int tr) {
     if (tl == tr) {
         t[v] = a[tl];
@@ -30,18 +30,22 @@ void printSegmentTree(int v, int tl, int tr) {
     }
 }
 
-long long sum(int v, int tl, int tr, int l, int r) {
-    if (l > r) {
+/*Did by self*/
+long long sum(int v , int tl, int tr , int l , int r )
+{
+    if( l > r  )
+    {
         return 0;
     }
-    if (l == tl && r == tr) {
+
+    if( l == tl && r == tr )
+    {
         return t[v];
     }
 
     int tm = tl + (tr - tl) / 2;
-    return sum(v * 2, tl, tm, l, min(r, tm)) + sum(v * 2 + 1, tm + 1, tr, max(l, tm + 1), r);
+    return sum ( v*2, tl , tm, l , min(tm,r) ) + sum(v*2 + 1, tm+1,tr,max(l,tm+1),r);
 }
-
 //pos , tl,tl : 0 to n-1
 void update(int v, int tl, int tr, int pos, int new_val) {
     if (tl == tr) {

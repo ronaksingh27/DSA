@@ -3,13 +3,17 @@ using namespace std;
 
 
 class DSU{
+    public:
     vector<int> par,size;
+    int connected_components;
+
 
     DSU( int n  )
     {
         par.resize(n);
         iota(par.begin(),par.end(),0);
         size.assign(n,1);
+        connected_components = n;
     }
 
     int doFind(int x )
@@ -36,6 +40,7 @@ class DSU{
 
             size[x] += size[y];
             par[y] = x;
+            connected_components--;
         }
     }
 
@@ -44,5 +49,16 @@ class DSU{
 
 int main()
 {
+    int n;
+    cin>>n;
 
+    DSU dsu(n);
+    for( int i = 0 ; i < n-1 ; i++ )
+    {
+        int x,y;
+        cin>>x>>y;
+        dsu.doUnion(x,y);
+    }
+
+    cout<<"connected components : "<<dsu.connected_components<<endl;
 }
